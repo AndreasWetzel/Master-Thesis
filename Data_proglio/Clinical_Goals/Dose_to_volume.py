@@ -245,14 +245,14 @@ ROI_liste_3 = ['SpinalCord','SpinalCord.1','Cochlea_L','Cochlea_L.1','Cochlea_L.
 # Organiser alle ROI-lister i én liste
 
 ROI1 = ['OpticChiasm','OpticNerve_L','OpticNerve_R','BrainstemCore','BrainstemSurface']
-ROI2 = ['Lens_L','Lens_L.1','Lens_R','Lens_R.1']
+ROI2 = ['Lens_L','Lens_R']
 #ROI3 = ['GTV','CTV','PTV']
-ROI4 = ['LacrimalGland_L','LacrimalGland_R','Cochlea_R','Cochlea_R.1','Cochlea_R.2']
-ROI5 = ['Retina_L','Retina_R','Hippocampus_L','Hippocampus_R','Pituitary','Pituitary.1']
-ROI6 = ['SpinalCord','SpinalCord.1']
-ROI7 = ['Cochlea_L','Cochlea_L.1','Cochlea_L.2']
+ROI4 = ['LacrimalGland_L','LacrimalGland_R','Cochlea_L','Cochlea_R']
+ROI5 = ['Retina_L','Retina_R','Hippocampus_L','Hippocampus_R','Pituitary']
+ROI6 = ['SpinalCord']
+ROI7 = ['Cochlea_L']
 
-all_ROI_lists = [ROI1,ROI2, ROI4,ROI5,ROI6,ROI7]
+all_ROI_lists = [ROI1,ROI2, ROI4,ROI5,ROI6]
 
 
 DC1 = [55,55,55,54,60]
@@ -266,7 +266,7 @@ line_values_list = [DC1,DC2,DC4,DC5,DC6,DC7] #Dose constraints
 box_colors = ['blue', 'green', 'pink', 'grey', 'red', 'orange']
 
 # Loop gjennom hver ROI-liste og utfør plottingsoperasjonene
-"""for i, ROI_lister in enumerate(all_ROI_lists):
+for i, ROI_lister in enumerate(all_ROI_lists):
     dose_box_P = []
     dose_box_F = []
 
@@ -288,7 +288,7 @@ box_colors = ['blue', 'green', 'pink', 'grey', 'red', 'orange']
     positions = [k * 2 + 1 for k in range(len(ROI_lister))]
 
     # Loop gjennom boksdata og utfør plottingsoperasjoner
-    for j, (data1, data2) in enumerate(box_total):
+    """for j, (data1, data2) in enumerate(box_total):
         positions = [j * 2 + 1, j * 2 + 2]
         plt.boxplot([data1, data2], positions=positions, labels=['Protoner', 'Fotoner'], patch_artist=True,
                     boxprops=dict(facecolor=box_colors[j]))
@@ -299,23 +299,25 @@ box_colors = ['blue', 'green', 'pink', 'grey', 'red', 'orange']
             plt.hlines(y=[line_value], xmin=positions[0] - 0.5, xmax=positions[1] + 0.5, linestyle='--',
                        color=box_colors[j], label=f'Dose constraint  {line_value} [Gy]')
 
+
+
         text_y = -0.17 * (plt.ylim()[1] - plt.ylim()[0]) # Plasser navnet under hvert boxplot
         print('text_y=   ', text_y)
         plt.text((positions[0] + positions[1]) / 2, text_y, ROI_lister[j], ha='center', va='bottom', color=box_colors[j], fontsize=10)
 
     # Sett navnene på x-aksen
-    plt.xticks(positions, ["" for _ in positions])  # Fjern standard x-akse etiketter
+    #plt.xticks(positions, ["" for _ in positions])  # Fjern standard x-akse etiketter
 
     save_file = os.path.join('word', f'{all_ROI_lists[i]}.png')
 
     # Lagre plottet
     plt.ylabel('Dose [Gy]')
-    plt.legend()  # Vis legenden
+    plt.legend(loc='upper left')  # Vis legenden
     plt.savefig(save_file)
     plt.show()"""
 
 ROI8 = ['GTV','CTV','GTV_D2','CTV_D2']
-ROI9 = ['Brain-GTV','Brain-CTV','Brain-GTV_D2','Brain-CTV_D2']
+ROI9 = ['Brain-GTV','Brain-CTV']
 all_ROI_lists = [ROI8,ROI9]
 
 h_line =[107,107,107,107]
@@ -365,7 +367,7 @@ for i, ROI_lister in enumerate(all_ROI_lists):
 
     # Lagre plottet
     plt.ylabel('% of prescribed dose')
-    plt.legend()
+    plt.legend(loc='upper left')
     plt.savefig(save_file)
     plt.show()
 
