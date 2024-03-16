@@ -288,7 +288,7 @@ for i, ROI_lister in enumerate(all_ROI_lists):
     positions = [k * 2 + 1 for k in range(len(ROI_lister))]
 
     # Loop gjennom boksdata og utfør plottingsoperasjoner
-    """for j, (data1, data2) in enumerate(box_total):
+    for j, (data1, data2) in enumerate(box_total):
         positions = [j * 2 + 1, j * 2 + 2]
         plt.boxplot([data1, data2], positions=positions, labels=['Protoner', 'Fotoner'], patch_artist=True,
                     boxprops=dict(facecolor=box_colors[j]))
@@ -314,7 +314,7 @@ for i, ROI_lister in enumerate(all_ROI_lists):
     plt.ylabel('Dose [Gy]')
     plt.legend(loc='upper left')  # Vis legenden
     plt.savefig(save_file)
-    plt.show()"""
+    plt.show()
 
 ROI8 = ['GTV','CTV','GTV_D2','CTV_D2']
 ROI9 = ['Brain-GTV','Brain-CTV']
